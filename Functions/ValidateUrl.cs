@@ -22,13 +22,17 @@ namespace CaliSharp.Demo.Functions
 
         [FunctionName("ValidateUrl")]
         public async Task Run(
-            [QueueTrigger("ValidateUrl", Connection = "AzureWebJobsStorage")] string url,
+            [QueueTrigger("demoteams", Connection = "AzureWebJobsStorage")] string url,
             ILogger log)
         {
-            var response = await _client.GetAsync(url);
-            var isValid = response.IsSuccessStatusCode;
+            try
+            {
+                log.LogInformation($"Running ValidateUrl function for url {url}");
 
-            if (!isValid)
+                var response = await _client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception)
             {
                 _teams.NotifyBrokenUrl(url);
             }

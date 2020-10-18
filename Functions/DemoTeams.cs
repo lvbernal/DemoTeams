@@ -14,6 +14,8 @@ namespace CaliSharp.Demo.Functions
             [Queue("demoteams"), StorageAccount("AzureWebJobsStorage")] ICollector<string> queue,
             ILogger log)
         {
+            log.LogInformation("Running DemoTeams function");
+
             foreach (var url in form.URLs)
             {
                 queue.Add(url);
@@ -21,7 +23,8 @@ namespace CaliSharp.Demo.Functions
 
             var response = new
             {
-                Msg = "Bienvenidos a CaliSharp"
+                Msg = "CaliSharp de Octubre",
+                Urls = form.URLs
             };
 
             return new OkObjectResult(response);
