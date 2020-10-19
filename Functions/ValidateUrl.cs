@@ -14,11 +14,13 @@ namespace CaliSharp.Demo.Functions
 
         public ValidateUrl()
         {
+            var hookUrl = Environment.GetEnvironmentVariable("HookUrl", EnvironmentVariableTarget.Process);
+            var callbackUrl = Environment.GetEnvironmentVariable("CallbackUrl", EnvironmentVariableTarget.Process);
+
             _client = new HttpClient();
 
-            var hookUrl = Environment.GetEnvironmentVariable("HookUrl", EnvironmentVariableTarget.Process);
-            _teams = new TeamsNotifier(hookUrl);
-            // _teams = new TeamsAdvancedNotifier(hookUrl);
+            // _teams = new TeamsNotifier(hookUrl);
+            // _teams = new TeamsAdvancedNotifier(hookUrl, callbackUrl);
         }
 
         [FunctionName("ValidateUrl")]

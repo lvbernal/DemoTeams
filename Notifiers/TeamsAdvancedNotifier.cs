@@ -3,7 +3,12 @@ namespace CaliSharp.Demo.Notifiers
 {
     public class TeamsAdvancedNotifier : TeamsNotifier
     {
-        public TeamsAdvancedNotifier(string hookUrl) : base(hookUrl) { }
+        private readonly string _callbackUrl;
+        public TeamsAdvancedNotifier(string hookUrl, string callbackUrl)
+            : base(hookUrl)
+        {
+            _callbackUrl = callbackUrl;
+        }
 
         protected override string BuildHookMessage(string url)
         {
@@ -37,7 +42,7 @@ namespace CaliSharp.Demo.Notifiers
                         'actions': [{{
                             '@type': 'HttpPOST',
                             'name': 'Update Url',
-                            'target': 'http://...'
+                            'target': '{_callbackUrl}'
                         }}]
                     }}
                 ]

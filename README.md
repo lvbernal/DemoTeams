@@ -11,6 +11,7 @@ Demo de integraciones con Teams.
 3. Configurar las variables de entorno en el archivo `local.settings.json`. Crearlo si no existe.
     * AzureWebJobsStorage: Cadena de conexión de la cuenta de almacenamiento.
     * HookUrl: URL del _Incoming Webhook_ de Teams.
+    * CallbackUrl: URL pública de la función _ResponseHandler_.
 
 ```json
 {
@@ -18,7 +19,8 @@ Demo de integraciones con Teams.
     "Values": {
         "AzureWebJobsStorage": "",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-        "HookUrl": ""
+        "HookUrl": "",
+        "CallbackUrl": ""
     }
 }
 ```
