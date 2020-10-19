@@ -12,10 +12,10 @@ namespace CaliSharp.Demo.Functions
     {
         [FunctionName("ResponseHandler")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "callback")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "teamscallback")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("Running ResponseHandler function");
+            log.LogInformation($"Running ResponseHandler function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
