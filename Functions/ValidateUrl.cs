@@ -19,7 +19,7 @@ namespace CaliSharp.Demo.Functions
 
             _client = new HttpClient();
 
-            // _teams = new TeamsNotifier(hookUrl);
+            _teams = new TeamsNotifier(hookUrl);
             // _teams = new TeamsAdvancedNotifier(hookUrl, callbackUrl);
         }
 

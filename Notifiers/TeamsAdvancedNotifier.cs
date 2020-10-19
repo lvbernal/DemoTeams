@@ -12,7 +12,7 @@ namespace CaliSharp.Demo.Notifiers
 
         protected override string BuildHookMessage(string url)
         {
-            var bodyFormat = "{ \"newUrl\": {{newUrl.value}} }";
+            var bodyFormat = "{ \"newUrl\": \"{{newUrl.value}}\" }";
 
             var hookMessage = $@"
             {{
