@@ -18,6 +18,7 @@ namespace CaliSharp.Demo.Functions
 
             var hookUrl = Environment.GetEnvironmentVariable("HookUrl", EnvironmentVariableTarget.Process);
             _teams = new TeamsNotifier(hookUrl);
+            // _teams = new TeamsAdvancedNotifier(hookUrl);
         }
 
         [FunctionName("ValidateUrl")]

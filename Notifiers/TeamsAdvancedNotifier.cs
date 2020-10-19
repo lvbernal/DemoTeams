@@ -1,25 +1,11 @@
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CaliSharp.Demo.Notifiers
 {
-    public class TeamsNotifier
+    public class TeamsAdvancedNotifier : TeamsNotifier
     {
-        private readonly string _hookUrl;
+        public TeamsAdvancedNotifier(string hookUrl) : base(hookUrl) { }
 
-        public TeamsNotifier(string hookUrl)
-        {
-            _hookUrl = hookUrl;
-        }
-
-        public void NotifyBrokenUrl(string url)
-        {
-            var message = BuildHookMessage(url);
-            _ = SendMessage(message);
-        }
-
-        protected virtual string BuildHookMessage(string url)
+        protected override string BuildHookMessage(string url)
         {
             var hookMessage = $@"
             {{
@@ -43,13 +29,6 @@ namespace CaliSharp.Demo.Notifiers
             }}";
 
             return hookMessage;
-        }
-
-        private async Task SendMessage(string message)
-        {
-            using var client = new HttpClient();
-            var content = new StringContent(message, Encoding.UTF8, "application/json");
-            await client.PostAsync(_hookUrl, content);
         }
     }
 }
