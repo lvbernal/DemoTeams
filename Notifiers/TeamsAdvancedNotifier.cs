@@ -24,6 +24,21 @@ namespace CaliSharp.Demo.Notifiers
                                 'uri': '{url}'
                             }}
                         ]
+                    }},
+                    {{
+                        '@type': 'ActionCard',
+                        'name': 'Actualizar URL',
+                        'inputs': [{{
+                            '@type': 'TextInput',
+                            'id': 'comment',
+                            'isMultiline': false,
+                            'title': 'Indique la nueva URL'
+                        }}],
+                        'actions': [{{
+                            '@type': 'HttpPOST',
+                            'name': 'Update Url',
+                            'target': 'http://...'
+                        }}]
                     }}
                 ]
             }}";

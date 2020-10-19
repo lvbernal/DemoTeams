@@ -33,7 +33,7 @@ namespace CaliSharp.Demo.Functions
                 var response = await _client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
             }
-            catch (Exception)
+            catch
             {
                 _teams.NotifyBrokenUrl(url);
             }
