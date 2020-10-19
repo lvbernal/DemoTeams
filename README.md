@@ -25,6 +25,14 @@ Demo de integraciones con Teams.
 }
 ```
 
+Túnel de Ngrok para pruebas locales:
+
+```
+./ngrok http -host-header=rewrite localhost:7071
+```
+
+[Portal Ngrok local](http://localhost:4040/inspect/http).
+
 ## Enlaces de interés
 
 General:
@@ -40,3 +48,5 @@ Documentación:
 * [Office 365 connector card](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#office-365-connector-card)
 * [Work with Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 * [Message card playground](https://messagecardplayground.azurewebsites.net/)
+* [Legacy message card reference](https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference)
+* [Ngrok](https://ngrok.com)
