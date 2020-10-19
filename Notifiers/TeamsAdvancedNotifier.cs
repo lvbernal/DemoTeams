@@ -12,6 +12,8 @@ namespace CaliSharp.Demo.Notifiers
 
         protected override string BuildHookMessage(string url)
         {
+            var bodyFormat = "{ \"newUrl\": {{newUrl.value}} }";
+
             var hookMessage = $@"
             {{
                 '@context': 'https://schema.org/extensions',
@@ -35,13 +37,14 @@ namespace CaliSharp.Demo.Notifiers
                         'name': 'Actualizar URL',
                         'inputs': [{{
                             '@type': 'TextInput',
-                            'id': 'comment',
+                            'id': 'newUrl',
                             'isMultiline': false,
                             'title': 'Indique la nueva URL'
                         }}],
                         'actions': [{{
                             '@type': 'HttpPOST',
-                            'name': 'Update Url',
+                            'name': 'Actualizar URL',
+                            'body': '{bodyFormat}',
                             'target': '{_callbackUrl}'
                         }}]
                     }}
