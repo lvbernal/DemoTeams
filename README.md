@@ -40,7 +40,7 @@ General:
 * [Comunidad CaliSharp](https://www.meetup.com/CaliSharpCO)
 * [Evento de octubre 2020](https://www.meetup.com/CaliSharpCO/events/274024056/)
 
-Documentación:
+Documentación Demo 1: Hooks.
 
 * [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create)
 * [Add an incoming webhook to a Teams channel](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel)
@@ -50,3 +50,11 @@ Documentación:
 * [Message card playground](https://messagecardplayground.azurewebsites.net/)
 * [Legacy message card reference](https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference)
 * [Ngrok](https://ngrok.com)
+
+Documentación Demo 2: Power Automate.
+
+* [Power Automate](https://docs.microsoft.com/en-us/power-automate/)
+
+Documentación Demo 3: Apps.
+
+* [Teams Dev Center](https://developer.microsoft.com/en-us/microsoft-teams)
