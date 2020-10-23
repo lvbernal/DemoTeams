@@ -1,26 +1,22 @@
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using CaliSharp.Demo.Notifiers;
+using CaliSharp.Demo.Spec;
 
 namespace CaliSharp.Demo.Functions
 {
     public class ValidateUrl
     {
         private readonly HttpClient _client;
-        private readonly TeamsNotifier _teams;
+        private readonly ITeamsNotifier _teams;
 
-        public ValidateUrl()
+        public ValidateUrl(IHttpClientFactory clientFactory, ITeamsNotifier teams)
         {
-            var hookUrl = Environment.GetEnvironmentVariable("HookUrl", EnvironmentVariableTarget.Process);
-            var callbackUrl = Environment.GetEnvironmentVariable("CallbackUrl", EnvironmentVariableTarget.Process);
-
-            _client = new HttpClient();
-
-            _teams = new TeamsNotifier(hookUrl);
-            // _teams = new TeamsAdvancedNotifier(hookUrl, callbackUrl);
+            _client = clientFactory.CreateClient();
+            _teams = teams;
         }
 
         [FunctionName("ValidateUrl")]

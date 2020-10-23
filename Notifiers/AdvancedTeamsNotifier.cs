@@ -1,13 +1,16 @@
 
+using Microsoft.Extensions.Options;
+
 namespace CaliSharp.Demo.Notifiers
 {
-    public class TeamsAdvancedNotifier : TeamsNotifier
+    public class AdvancedTeamsNotifier : TeamsNotifier
     {
         private readonly string _callbackUrl;
-        public TeamsAdvancedNotifier(string hookUrl, string callbackUrl)
-            : base(hookUrl)
+
+        public AdvancedTeamsNotifier(IOptions<Options> options)
+            : base(options)
         {
-            _callbackUrl = callbackUrl;
+            _callbackUrl = options.Value.CallbackUrl;
         }
 
         protected override string BuildHookMessage(string url)

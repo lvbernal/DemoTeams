@@ -1,16 +1,18 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using CaliSharp.Demo.Spec;
+using Microsoft.Extensions.Options;
 
 namespace CaliSharp.Demo.Notifiers
 {
-    public class TeamsNotifier
+    public class TeamsNotifier : ITeamsNotifier
     {
         private readonly string _hookUrl;
 
-        public TeamsNotifier(string hookUrl)
+        public TeamsNotifier(IOptions<Options> options)
         {
-            _hookUrl = hookUrl;
+            _hookUrl = options.Value.HookUrl;
         }
 
         public void NotifyBrokenUrl(string url)
